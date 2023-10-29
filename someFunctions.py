@@ -1,16 +1,16 @@
 def myLambda(n):
-  return lambda a, b : (a + b) * n
+    return lambda a, b : (a + b) * n
 
 def printListReverse(my_numbers):
-  my_numbers.reverse()
-  [print(x) for x in my_numbers]
+    my_numbers.reverse()
+    [print(x) for x in my_numbers]
 
 def printListReverseAlternative(my_list):
-  for x in range(len(my_list) - 1, -1, -1):
-    print(my_list[x])
+    for x in range(len(my_list) - 1, -1, -1):
+        print(my_list[x])
 
 def reverseString(my_string):
-  return my_string[::-1]
+    return my_string[::-1]
 
 addAndDouble = myLambda(2)
 myString = "Hello, World!"
