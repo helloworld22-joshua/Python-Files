@@ -12,14 +12,14 @@ delayInMs = 0.1   #0.1
 symbol = "❌"     #Example symbols: ⬤, ×, •, ⭕, ⚫, ❌
 
 for xAxis in range(xAxisLimit):
-  yAxis = round(amplitudeA * math.sin(math.pi / frequencyB * (xAxis - horzShiftH)) + vertShiftK)  #"math.pi /" to make things easier
+    yAxis = round(amplitudeA * math.sin(math.pi / frequencyB * (xAxis - horzShiftH)) + vertShiftK)  #"math.pi /" to make things easier
 
-  if debugMode:
-    print(xAxis, "|", yAxis, end=" ")
+    if debugMode:
+        print(xAxis, "|", yAxis, end=" ")
 
-  if yAxis >= 0:
-    print(" " * yAxis + symbol)
-  else:
-    print()
+    if yAxis >= 0:
+        print(" " * yAxis + symbol)
+    else:
+        print()
 
-  time.sleep(delayInMs)
+    time.sleep(delayInMs)
