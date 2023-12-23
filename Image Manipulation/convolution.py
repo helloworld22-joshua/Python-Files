@@ -21,32 +21,18 @@ def convolut(x, y):
 
     return tuple(round(pixel / (9 - skip)) for pixel in result)     # Devide sum by nine for average value of the pixels combined
 
+new_img = Image.new(img.mode, img.size)
+new_pix = new_img.load()
 
 def convolution(multiplier):
     for _ in range(multiplier):                                     # Amount of repetitions (low values only)
         for y in range(img.size[1]):
             for x in range(img.size[0]):
-                pix[x, y] = convolut(x, y)                          # Convolutes each pixel
+                new_pix[x, y] = convolut(x, y)                      # Convolutes each pixel
 
 convolution(1)
 
-img.save(f"Image Manipulation\img_{round(time.time() * 1000)}.png")        # Saves image and adds time in milliseconds into name
+new_img.save(f"Image Manipulation\convolution_{round(time.time() * 1000)}.png") # Saves image and adds time in milliseconds into name
 
-
-
-
-
-
-
-
-#print(im.format, im.size, im.mode)
-
-""" for y in range(img.size[1]):
-    for x in range(img.size[0]):
-        if pix[x, y] == (252, 166, 172, 255):
-            pix[x, y] = (255, 0, 0)
-
-for y in range(img.size[1]):
-    for x in range(img.size[0]):
-        if x % 2:
-            pix[x, y] = (0, 0, 0) """
+img.close()
+new_img.close()
