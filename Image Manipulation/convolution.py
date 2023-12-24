@@ -1,7 +1,7 @@
 import time
 from PIL import Image
 
-img = Image.open(r'Image Manipulation\garfield.png')
+img = Image.open(r'Image Manipulation\forza.png')
 pix = img.load()
 
 def convolut(x, y):
@@ -27,12 +27,17 @@ new_pix = new_img.load()
 def convolution(multiplier):
     for _ in range(multiplier):                                     # Amount of repetitions (low values only)
         for y in range(img.size[1]):
+
+            if not y % 100: print(f"Progress ({multiplier}): {round(y / img.size[1] * 100)}%") # Status report every 100 pixels on the y-axis
+
             for x in range(img.size[0]):
                 new_pix[x, y] = convolut(x, y)                      # Convolutes each pixel
 
+    print("Status: Completed!")
+
 convolution(1)
 
-new_img.save(f"Image Manipulation\convolution_{round(time.time() * 1000)}.png") # Saves image and adds time in milliseconds into name
+new_img.save(f"Image Manipulation\Results\convolution_{round(time.time() * 1000)}.png") # Saves image and adds time in milliseconds into name
 
 img.close()
 new_img.close()

@@ -1,3 +1,5 @@
-x = "Hello, World!"
+t = 540
 
-print(x.split("Hello"))
+for x in range(t):
+    if not x % 100:
+        print(x)

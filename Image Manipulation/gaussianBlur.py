@@ -5,10 +5,22 @@ img = Image.open(r'Image Manipulation\garfield.png')
 pix = img.load()
 
 bell_curve = [[0.003, 0.013, 0.022, 0.013, 0.003],
-[0.013, 0.06, 0.098, 0.06, 0.013],
-[0.022, 0.098, 0.162, 0.098, 0.022],
-[0.013, 0.06, 0.098, 0.06, 0.013],
-[0.003, 0.013, 0.022, 0.013, 0.003]]
+              [0.013, 0.060, 0.098, 0.060, 0.013],
+              [0.022, 0.098, 0.162, 0.098, 0.022],
+              [0.013, 0.060, 0.098, 0.060, 0.013],
+              [0.003, 0.013, 0.022, 0.013, 0.003]]
+
+reverse_bell_curve = [[0.162, 0.098, 0.060, 0.098, 0.162],
+                      [0.098, 0.022, 0.013, 0.022, 0.098],
+                      [0.060, 0.013, 0.003, 0.013, 0.060],
+                      [0.098, 0.022, 0.013, 0.022, 0.098],
+                      [0.162, 0.098, 0.060, 0.098, 0.162]]
+
+inverted_bell_curve = [[0.089, 0.054, 0.033, 0.054, 0.089],
+                       [0.054, 0.012, 0.007, 0.012, 0.054],
+                       [0.033, 0.007, 0.002, 0.007, 0.033],
+                       [0.054, 0.012, 0.007, 0.012, 0.054],
+                       [0.089, 0.054, 0.033, 0.054, 0.089]]
 
 def gaussianBlur(x, y):
     result = (0, 0, 0)                                                          # Sum of values of individual pixels
@@ -27,10 +39,26 @@ new_img = Image.new(img.mode, img.size)                                         
 new_pix = new_img.load()
 
 for y in range(img.size[1]):
-   for x in range(img.size[0]):
-       new_pix[x, y] = gaussianBlur(x, y)                                       # Set pixels to the manipulated pixels of the old image
 
-new_img.save(f"Image Manipulation\gaussianBlur_{round(time.time() * 1000)}.png")  # Saves image and adds time in milliseconds into name
+    if not y % 100: print(f"Progress: {round(y / img.size[1] * 100)}%")         # Status report every 100 pixels on the y-axis
+
+    for x in range(img.size[0]):
+        new_pix[x, y] = gaussianBlur(x, y)                                      # Set pixels to the manipulated pixels of the old image
+
+print("Status: Completed!")
+
+new_img.save(f"Image Manipulation\Results\gaussianBlur_{round(time.time() * 1000)}.png")  # Saves image and adds time in milliseconds into name
 
 img.close()
 new_img.close()
+
+""" How I got the inverted bell curve:
+total = 0
+inverted_bell_curve = [[0] * 5 for _ in range(5)]
+
+for i in range(5):
+    for j in range(5):
+        inverted_bell_curve[i][j] = round(reverse_bell_curve[i][j] / 1.815, 3)
+        total += reverse_bell_curve[i][j] / 1.815
+
+print(total, inverted_bell_curve) """
