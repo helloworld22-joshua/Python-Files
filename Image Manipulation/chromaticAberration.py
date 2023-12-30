@@ -1,7 +1,7 @@
 import time
 from PIL import Image
 
-img = Image.open(r'Image Manipulation\wild_anza.png')
+img = Image.open(r"Image Manipulation\Source\wild_anza.png")
 pix = img.load()
 
 new_img = Image.new(img.mode, img.size)

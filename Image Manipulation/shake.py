@@ -1,7 +1,7 @@
 import time
 from PIL import Image
 
-img = Image.open(r'Image Manipulation\forza.png')
+img = Image.open(r"Image Manipulation\Source\forza.png")
 pix = img.load()
 
 new_img = Image.new(img.mode, img.size)                                         # Create a new image

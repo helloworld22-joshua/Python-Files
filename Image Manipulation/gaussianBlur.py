@@ -1,7 +1,7 @@
 import time
 from PIL import Image
 
-img = Image.open(r'Image Manipulation\garfield.png')
+img = Image.open(r"Image Manipulation\Source\garfield.png")
 pix = img.load()
 
 bell_curve = [[0.003, 0.013, 0.022, 0.013, 0.003],

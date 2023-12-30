@@ -1,8 +1,8 @@
 import time
 from PIL import Image
 
-img1 = Image.open(r'Image Manipulation\forza.png')
-img2 = Image.open(r'Image Manipulation\wild_anza.png')
+img1 = Image.open(r"Image Manipulation\Source\forza.png")
+img2 = Image.open(r"Image Manipulation\Source\wild_anza.png")
 
 pix1 = img1.load()
 pix2 = img2.load()

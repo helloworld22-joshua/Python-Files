@@ -1,7 +1,7 @@
 import time, math
 from PIL import Image
 
-img = Image.open(r'Image Manipulation\forza.png')
+img = Image.open(r"Image Manipulation\Source\forza.png")
 pix = img.load()
 
 EV = -2

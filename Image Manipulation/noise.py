@@ -1,7 +1,7 @@
 import time, random
 from PIL import Image
 
-img = Image.open(r'Image Manipulation\garfield.png')
+img = Image.open(r"Image Manipulation\Source\garfield.png")
 pix = img.load()
 
 max_noise = 100

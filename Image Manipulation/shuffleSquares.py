@@ -2,7 +2,7 @@ import time, random, math
 from PIL import Image
 from fractions import Fraction
 
-img = Image.open(r'Image Manipulation\lava_ship.png')
+img = Image.open(r"Image Manipulation\Source\lava_ship.png")
 pix = img.load()
 
 new_img = Image.new(img.mode, img.size)

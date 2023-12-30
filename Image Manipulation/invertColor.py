@@ -1,7 +1,7 @@
 import time
 from PIL import Image
 
-img = Image.open(r'Image Manipulation\lava_ship.png')
+img = Image.open(r"Image Manipulation\Source\lava_ship.png")
 pix = img.load()
 
 invertR = True
