@@ -4,7 +4,7 @@ from PIL import Image
 img = Image.open(r"Image Manipulation\Source\mühle_warnstedt.jpg")
 pix = img.load()
 
-bits = 8
+bits = 2
 
 b = round(256 / (bits ** 2))
 
